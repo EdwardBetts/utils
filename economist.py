@@ -1,7 +1,16 @@
 #!/usr/bin/python
 
 # Copy the audio edition of the economist to an MP3 player
+# The MP3 files are supplied in a zip file, it follows a standard naming 
+# convention. MP3 files start with a three digit number to give sort order
+# but the zip file is unordered. Some MP3 players don't sort, they need
+# files to be copied in sorted order.
 
+# This script assumes the economist zip is in ~/lib/economist
+# Dates are parsed and the most recent zip file is used.
+
+# Destination is the first mounted device that contains an economist directory
+# Creates a dir with in a name in ISO format
 
 from zipfile import ZipFile
 from datetime import datetime, date
